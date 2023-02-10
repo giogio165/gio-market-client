@@ -1,3 +1,47 @@
  html, body, #root, #root > div {
   height: 100%;
 } 
+
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+/* 모든 태그 마진패딩 0으로 */
+
+#header {
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+}
+
+#body {
+  height: 100vh; 
+  /* 부모의 높이와 동일하게 */
+  width: 1024px;
+  margin: 0 auto;
+  /* 자식이 부모 기준으로 스스로 중간정렬 */
+  padding: 24px;
+}
+
+#footer {
+  height: 200px;
+  background-color: grey;
+}
+
+#header-area {
+  width: 1024px;
+  height: 100%;
+  /* margin: 0 auto;이거 안하고 부모에 flex 넣어줘두 댐 justify content 도 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  /* 양끝으로 배치 */
+}
+
+#header-area img {
+  width: 128px;
+  height: 36px;
+}
