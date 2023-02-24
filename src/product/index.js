@@ -2,15 +2,16 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import { useEffect , useState } from "react";
 import "./index.css"
-
+import { API_URL } from "../config/constants";
+import dayjs from "dayjs";
 function ProductPage(){
     const {id} = useParams();
     const [product, setProducts] = useState(null);
     useEffect(function(){
         axios
-        .get(`https://02a78ff3-a9a6-4f24-851f-4d5dabd0f80f.mock.pstmn.io/products/${id}`)
+        .get(`http://localhost:8080/products/${id}`)
         .then(function(result){
-            setProducts(result.data)
+            setProducts(result.data.product)
             // console.log(result);
         })
         .catch(function(error){
@@ -24,7 +25,7 @@ function ProductPage(){
     return (
         <div>
             <div id="image-box">
-                <img src={"/"+product.imgUrl} />
+                <img src={`${API_URL}/${product.imgUrl}`} />
             </div>
             <div id="profile-box">
                 <img src="/images/icons/avatar.png" />
@@ -34,8 +35,9 @@ function ProductPage(){
                 <div id="name">{product.name}</div>
                 <div id="price">{product.price}원</div>
                 {/* jsx문법으로 써주는 중! */}
-                <div id="createdAt">2020년 12월 8일</div>
-                <div id="description">{product.description}</div>
+                <div id="createdAt">{dayjs(product.createdAt).format('YYYY년 MM월 DD일')}</div>
+                <pre id="description">{product.description}</pre> 
+                {/* pre 태그는 줄바꿈을 그대로 보여주는 태그 */}
             </div>
         </div>
     )

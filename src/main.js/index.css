@@ -1,6 +1,6 @@
 #banner {
     height: 300px;
-    background-color: yellow;
+  
 }
 
 #banner > img {
@@ -31,6 +31,7 @@
 .product-img {
     width: 100%;
     height: 210px;
+    object-fit: contain;
 }
 
 .product-content {
@@ -52,7 +53,6 @@
 .product-seller {
     display: flex;
     align-items: center;
-    margin-top: 12px;
 }
 
 .product-avatar {
@@ -62,4 +62,17 @@
 .product-link {
     color: inherit;
     text-decoration: none;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+
+.product-date {
+    font-size: 12px;
+    color: rgb(136,136,136);
 }
